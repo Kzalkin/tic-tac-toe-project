@@ -1,0 +1,84 @@
+.game-container {
+  display: grid;
+  grid-template-columns: repeat(3, 8rem);
+  grid-template-rows: repeat(3, 8rem);
+  gap: 1px;
+  background-color: black;
+  border: 10px black solid;
+  border-radius: 15px;
+}
+.game-container .cell {
+  display: flex;
+  font-size: 5rem;
+  cursor: default;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.37) inset;
+}
+.game-container .cell:hover {
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.37) inset;
+}
+.game-container .cell:active {
+  background-color: #cfcfcf;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+body .display {
+  margin: 2rem;
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  width: 15vw;
+  margin: 2rem;
+}
+.buttons button {
+  padding: 0.5rem;
+  border-radius: 15px;
+  border: 1px solid black;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  width: auto;
+}
+.buttons .previous {
+  left: 45%;
+  color: black;
+}
+.buttons .next {
+  left: 55%;
+  color: black;
+}
+.buttons .reset {
+  display: block;
+  color: black;
+}
+
+.history-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  background-color: transparent;
+  left: 1rem;
+  top: 1rem;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+/*# sourceMappingURL=styles.css.map */

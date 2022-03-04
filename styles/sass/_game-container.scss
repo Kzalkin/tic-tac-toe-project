@@ -1,0 +1,28 @@
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(3, 8rem);
+    grid-template-rows: repeat(3, 8rem);
+    gap: 1px;
+    background-color: black;
+    border: 10px black solid;
+    border-radius: 15px;
+
+    .cell {
+        display: flex;
+        font-size: 5rem;
+        cursor: default;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.37) inset;
+
+        &:hover {
+            box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.37) inset;
+        }
+
+        &:active {
+            background-color: #cfcfcf;
+        }
+    }
+}

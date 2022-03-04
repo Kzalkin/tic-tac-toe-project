@@ -1,0 +1,11 @@
+@use 'sass/game-container';
+@use 'sass/body';
+@use 'sass/buttons';
+@use 'sass/history-display';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}

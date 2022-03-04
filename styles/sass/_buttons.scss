@@ -1,0 +1,32 @@
+.buttons {
+    display: flex;
+    width: 15vw;
+    margin: 2rem;
+
+    button {
+        // display: none;
+        padding: 0.5rem;
+        border-radius: 15px;
+        border: 1px solid black;
+        cursor: pointer;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        width: auto;
+    }
+
+    .previous {
+        left: 45%;
+        color: black;
+    }
+
+    .next {
+        left: 55%;
+        color: black;
+    }
+
+    .reset {
+        display: block;
+        color: black;
+    }
+}
