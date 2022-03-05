@@ -8,4 +8,11 @@ body {
     .display {
         margin: 2rem;
     }
+
+    .score {
+        margin: 2rem;
+        width: 20rem;
+        display: flex;
+        justify-content: space-between;
+    }
 }

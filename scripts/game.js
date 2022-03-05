@@ -1,6 +1,7 @@
 import { winPattern, gameContainer, previous, playerDisplay, cells, reset, next, switchPlayer, displayPlayer, resetPlayer, player } from "./variables.js";
 import { checkWin, setValues, saveValues, drawCheck, cellsCreateListener, cellsRemoveListeners, buttonFlipFalse, buttonFlipTrue, copyArray, setPointerEvents, setPlayerSwitchFalse, setPlayerSwitchTrue } from "./functions.js";
 import { saveHistoryDisplay, revertHistoryDisplay, removeHistoryDisplay, resetHistoryDisplay } from "./historyTextDisplay.js";
+import {setScore, decScore} from "./scores.js";
 let boardValue = [['','',''],['','',''],['','','']];
 let historyHandler = [];
 let historyIndex = -1;
@@ -19,6 +20,7 @@ function determineWinner() {
         cellsRemoveListeners(cells,newPlay);
         buttonFlipFalse(next, setNext);
         setPointerEvents(gameContainer, 'none');
+        setScore();
         return true;
     } else if (drawCheck(cells)) {
         playerDisplay.textContent = 'DRAW!';
@@ -63,8 +65,11 @@ function newPlay(event) {
 function previousBWinHandle() {
     const maxHistoryLimit = 9;
     const display = playerDisplay.textContent;
-    if (historyIndex + 2 === maxHistoryLimit && display === 'DRAW!' || display.includes('Won') ) {
+    if (historyIndex + 2 === maxHistoryLimit && display === 'DRAW!') {
         displayPlayer(playerDisplay);
+    } else if (display.includes('Won')) {
+        displayPlayer(playerDisplay);
+        decScore();
     } else {
         switchPlayer();
         displayPlayer(playerDisplay);
@@ -93,6 +98,7 @@ function nextBWinHandle() {
         setPointerEvents(gameContainer, 'none');
         cellsRemoveListeners(cells,play);
         cellsRemoveListeners(cells,newPlay);
+        setScore();
     } else if (drawCheck(cells)) {
         playerDisplay.textContent = 'DRAW!';
         setPointerEvents(gameContainer, 'none');
