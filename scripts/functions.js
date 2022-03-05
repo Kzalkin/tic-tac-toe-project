@@ -7,7 +7,7 @@ function checkWin(array, checkArray) {
                 let c = array[incount][checkArray[count][2]];
                 if (a === "" || b === "" || c === "") { continue };
                 if (a === b && b === c && a === c) { return true; };
-            } else {
+            } else if (incount === 0) {
                 let a = array[0][checkArray[count][0]];
                 let b = array[1][checkArray[count][1]];
                 let c = array[2][checkArray[count][2]];
