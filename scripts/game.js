@@ -1,4 +1,4 @@
-import { winCheck, gameContainer, previous, playerDisplay, cells, reset, next, switchPlayer, displayPlayer, resetPlayer, player } from "./variables.js";
+import { winPattern, gameContainer, previous, playerDisplay, cells, reset, next, switchPlayer, displayPlayer, resetPlayer, player } from "./variables.js";
 import { checkWin, setValues, saveValues, drawCheck, cellsCreateListener, cellsRemoveListeners, buttonFlipFalse, buttonFlipTrue, copyArray, setPointerEvents, setPlayerSwitchFalse, setPlayerSwitchTrue } from "./functions.js";
 import { saveHistoryDisplay, revertHistoryDisplay, removeHistoryDisplay, resetHistoryDisplay } from "./historyTextDisplay.js";
 let boardValue = [['','',''],['','',''],['','','']];
@@ -7,8 +7,13 @@ let historyIndex = -1;
 let gameHistory = [];
 let historyLimit = 0;
 
+function changeInitialPlayer() {
+    switchPlayer();
+    displayPlayer(playerDisplay);
+}
+
 function determineWinner() {
-    if (checkWin(boardValue, winCheck)) {
+    if (checkWin(boardValue, winPattern)) {
         playerDisplay.textContent = `${player.toUpperCase()} Won!`;
         cellsRemoveListeners(cells,play);
         cellsRemoveListeners(cells,newPlay);
@@ -83,7 +88,7 @@ function setPrevious() {
 }
 
 function nextBWinHandle() {
-    if (checkWin(boardValue, winCheck)){
+    if (checkWin(boardValue, winPattern)){
         playerDisplay.textContent = `${player.toUpperCase()} Won!`;
         setPointerEvents(gameContainer, 'none');
         cellsRemoveListeners(cells,play);
@@ -128,11 +133,6 @@ function setReset() {
     buttonFlipFalse(previous, setPrevious);
     setPlayerSwitchTrue(playerDisplay, changeInitialPlayer);
     setPointerEvents(gameContainer, 'auto');
-}
-
-function changeInitialPlayer() {
-    switchPlayer();
-    displayPlayer(playerDisplay);
 }
 
 function init() {

@@ -6,7 +6,7 @@ const buttons = document.querySelectorAll('button')
 const cells = document.querySelectorAll('.cell');
 const reset = document.querySelector('.reset');
 const next = document.querySelector('.next');
-const winCheck = [[0,1,2],[0,0,0],[1,1,1],[2,2,2],[0,1,2],[2,1,0]];
+const winPattern = [[0,1,2],[0,0,0],[1,1,1],[2,2,2],[0,1,2],[2,1,0]];
 let player = 'x';
 
 function switchPlayer() {
@@ -23,5 +23,5 @@ function resetPlayer() {
 
 export { gameContainer, previous, buttons, 
         playerDisplay, cells, reset, next, 
-        winCheck, historyDisplay, player, 
+        winPattern, historyDisplay, player, 
         switchPlayer, displayPlayer, resetPlayer };
