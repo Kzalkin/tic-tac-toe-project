@@ -31,11 +31,11 @@ function determineWinner() {
 }
 
 function handlePlay(event) {
-    let id = event.target.id;
-    cells[id].innerHTML = `<i class="fa-solid fa-${player}"></i>`;
-    saveValues(id, player, boardValue);
+    const element = event.target;
+    element.innerHTML = `<i class="fa-solid fa-${player}"></i>`;
+    element.removeEventListener('click', play);
+    saveValues(event, player, boardValue);
     gameHistory.push(copyArray(boardValue));
-    cells[id].removeEventListener('click', play);
     saveHistoryDisplay(event);
     if (!determineWinner()) {
         switchPlayer();

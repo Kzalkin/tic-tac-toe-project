@@ -3,7 +3,7 @@ let historyDisplayHandler = [];
 
 function saveHistoryDisplay(event) {
     const historyItem = document.createElement('p');
-    let id = event.target.id;
+    const id = event.target.id;
     if (id < 3) {
         historyItem.textContent = `${player.toUpperCase()}: Row 1, Column ${(id % 3) + 1}`;
     } else if ( id >= 3 && id < 6) {

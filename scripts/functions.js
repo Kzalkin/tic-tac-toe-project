@@ -34,7 +34,8 @@ function setValues(array, element) {
     }
 }
 
-function saveValues(position, data , array) {
+function saveValues(event, data , array) {
+    const position = event.target.id
     if (position < 3) {
         array[0][position % 3] = data;
     } else if ( position >= 3 && position < 6) {
